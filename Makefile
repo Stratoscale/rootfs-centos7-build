@@ -18,7 +18,7 @@ $(ROOTFS): Makefile solvent.manifest
 	echo "Bringing source"
 	-sudo mv $(ROOTFS)/ $(ROOTFS).tmp/
 	-mkdir $(@D)
-	sudo solvent bring --repositoryBasename=rootfs-centos7-build-nostrato --product=rootfs --destination=$(ROOTFS).tmp
+	sudo solvent bring --repositoryBasename=rootfs-centos7-vanilla-strato --product=rootfs --destination=$(ROOTFS).tmp
 	echo "Installing strato packages"
 	sudo tar -xf ../install-laptop/build/installer/install-laptop.tgz -C $(ROOTFS).tmp/tmp
 	sudo ./chroot.sh $(ROOTFS).tmp sh -c "cd /tmp/install-laptop && ./install.sh"
